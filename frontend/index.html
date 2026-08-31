@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sistema de Busca de Vagas — Comparação de Algoritmos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div class="fundo-grade" aria-hidden="true"></div>
+
+<header class="cabecalho">
+  <div class="cabecalho__conteudo">
+    <span class="eyebrow">O(n) &nbsp;vs&nbsp; O(log n)</span>
+    <h1 class="titulo-principal">Sistema de Busca de Vagas</h1>
+    <p class="subtitulo">Comparação de algoritmos de busca sobre uma base real de vagas de emprego</p>
+  </div>
+</header>
+
+<main class="conteudo">
+    
+  <section class="painel painel--busca" aria-label="Busca de vagas">
+    <form id="form-busca" class="form-busca">
+      <div class="campo-texto">
+        <label for="input-termo" class="rotulo">Cargo ou título da vaga</label>
+        <input
+          type="text"
+          id="input-termo"
+          name="termo"
+          placeholder="ex.: Desenvolvedor, Analista de Dados, Python..."
+          autocomplete="off"
+        >
+      </div>
+
+      <fieldset class="campo-algoritmo">
+        <legend class="rotulo">Algoritmo</legend>
+
+        <label class="opcao-algoritmo">
+          <input type="radio" name="algoritmo" value="sequencial" checked>
+          <span class="opcao-algoritmo__texto">
+            <strong>Busca Sequencial</strong>
+            <code>O(n)</code>
+          </span>
+        </label>
+
+        <label class="opcao-algoritmo">
+          <input type="radio" name="algoritmo" value="binaria">
+          <span class="opcao-algoritmo__texto">
+            <strong>Busca Binária</strong>
+            <code>O(log n)</code>
+          </span>
+        </label>
+
+        <label class="opcao-algoritmo">
+          <input type="radio" name="algoritmo" value="comparar">
+          <span class="opcao-algoritmo__texto">
+            <strong>Comparar os dois</strong>
+            <code>n × log n</code>
+          </span>
+        </label>
+      </fieldset>
+
+      <button type="submit" class="botao-buscar">
+        Buscar
+        <span class="botao-buscar__seta">→</span>
+      </button>
+    </form>
+
+    <p id="mensagem-estado" class="mensagem-estado" hidden></p>
+  </section>
+
+  <section id="painel-info" class="painel painel--info" hidden aria-label="Informações da busca">
+    <div class="info-item">
+      <span class="info-item__rotulo">Algoritmo utilizado</span>
+      <span id="info-algoritmo" class="info-item__valor">—</span>
+    </div>
+    <div class="info-item">
+      <span class="info-item__rotulo">Elementos comparados</span>
+      <span id="info-comparacoes" class="info-item__valor info-item__valor--mono">—</span>
+    </div>
+    <div class="info-item">
+      <span class="info-item__rotulo">Tempo de execução</span>
+      <span id="info-tempo" class="info-item__valor info-item__valor--mono">—</span>
+    </div>
+    <div class="info-item">
+      <span class="info-item__rotulo">Vagas encontradas</span>
+      <span id="info-total" class="info-item__valor info-item__valor--mono">—</span>
+    </div>
+  </section>
+
+  <section id="painel-comparacao" class="painel painel--comparacao" hidden aria-label="Comparação entre algoritmos">
+    <h2 class="painel-comparacao__titulo">Duelo de algoritmos</h2>
+    <p class="painel-comparacao__legenda">
+      Mesma base, mesmo termo — comparações realizadas até localizar (ou descartar) a vaga.
+    </p>
+
+    <div class="corrida" id="corrida-sequencial">
+      <div class="corrida__cabecalho">
+        <span class="corrida__nome">Busca Sequencial <code>O(n)</code></span>
+        <span class="corrida__numero" id="corrida-seq-numero">0</span>
+      </div>
+      <div class="corrida__trilha">
+        <div class="corrida__barra corrida__barra--sequencial" id="corrida-seq-barra"></div>
+      </div>
+      <div class="corrida__rodape">
+        <span id="corrida-seq-tempo">—</span>
+        <span id="corrida-seq-resultado">—</span>
+      </div>
+    </div>
+
+    <div class="corrida" id="corrida-binaria">
+      <div class="corrida__cabecalho">
+        <span class="corrida__nome">Busca Binária <code>O(log n)</code></span>
+        <span class="corrida__numero" id="corrida-bin-numero">0</span>
+      </div>
+      <div class="corrida__trilha">
+        <div class="corrida__barra corrida__barra--binaria" id="corrida-bin-barra"></div>
+      </div>
+      <div class="corrida__rodape">
+        <span id="corrida-bin-tempo">—</span>
+        <span id="corrida-bin-resultado">—</span>
+      </div>
+    </div>
+
+    <p class="painel-comparacao__nota" id="comparacao-nota"></p>
+  </section>
+
+  <section class="painel painel--resultados" aria-label="Resultados da busca">
+    <div class="resultados__cabecalho">
+      <h2 class="resultados__titulo">Vagas</h2>
+      <span id="resultados-contagem" class="resultados__contagem"></span>
+    </div>
+    <div id="lista-resultados" class="lista-resultados">
+      <p class="estado-vazio">Faça uma busca para ver as vagas encontradas.</p>
+    </div>
+  </section>
+
+  <section class="painel painel--experimentos" aria-label="Experimentos de desempenho">
+    <div class="experimentos__cabecalho">
+      <div>
+        <h2 class="experimentos__titulo">Experimentos de desempenho</h2>
+        <p class="experimentos__legenda">
+          Como o número de comparações varia conforme a base de dados cresce (100 → 100.000 vagas).
+          Requer massas de teste geradas por <code>scripts/gerar_dados_teste.py</code>.
+        </p>
+      </div>
+      <button id="botao-experimento" class="botao-secundario">Rodar experimento</button>
+    </div>
+
+    <div id="tabela-experimentos" class="tabela-experimentos" hidden>
+      <table>
+        <thead>
+          <tr>
+            <th>n (vagas)</th>
+            <th>Sequencial · comparações</th>
+            <th>Binária · comparações</th>
+            <th>Sequencial · tempo</th>
+            <th>Binária · tempo</th>
+          </tr>
+        </thead>
+        <tbody id="tabela-experimentos-corpo"></tbody>
+      </table>
+    </div>
+
+    <p id="experimentos-mensagem" class="mensagem-estado" hidden></p>
+  </section>
+
+</main>
+
+<footer class="rodape">
+  <p>Projeto acadêmico — Estruturas de Dados 2 · Dados coletados via <a href="https://developer.adzuna.com/" target="_blank" rel="noopener">Adzuna Jobs API</a></p>
+</footer>
+
+<script src="/js/script.js"></script>
+</body>
+</html>
