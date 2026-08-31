@@ -1,13 +1,15 @@
 # G4_Busca_EDA2-2026.2
 
-### Trabalho 01 - 2026.2
+Disciplina: Estruturas de Dados 2 - 2026.2
+Professor: Maurício Serrano
+Trabalho: T1 - Algoritmos de Busca
 
 ## Alunos
 
 | Matrícula | Nome |
 |-----------------------|---------------------|
-| 23/1026699 | EDUARDA DOMINGOS RODRIGUES |
-| 23/1012316 | YASMIN MOREIRA DO NASCIMENTO |
+| 23/1026699 | Eduarda Domingos Rodrigues |
+| 23/1012316 | Yasmin Moreira DO Nascimento |
 
 ---
 
