@@ -1,0 +1,22 @@
+# Ambiente virtual
+venv/
+env/
+.venv/
+
+# Variáveis de ambiente / credenciais
+.env
+
+# Cache do Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# Massas de dados de teste (podem ser grandes; são geradas por script)
+data/vagas_teste_*.json
+
+# Sistema operacional / editores
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
