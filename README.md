@@ -27,17 +27,8 @@ O sistema permite observar não apenas as vagas encontradas, mas também a quant
 
 Além da utilização individual de cada método, foi criada uma opção de comparação entre os algoritmos, permitindo visualizar na prática as diferenças entre o comportamento da Busca Sequencial e da Busca Binária.
 
-A aplicação possui:
 
-- Backend desenvolvido em **Python com Flask**;
-- Interface desenvolvida em **HTML, CSS e JavaScript**;
-- Base de dados de vagas armazenada em arquivos JSON;
-- Implementação própria dos algoritmos de busca;
-- Contagem do número de comparações;
-- Medição do tempo de execução;
-- Experimentos com diferentes tamanhos de entrada.
-
-A coleta de vagas também pode ser realizada por meio da **Adzuna Jobs API**. Entretanto, a API é utilizada somente como fonte de dados. Os algoritmos de busca utilizados no trabalho foram implementados pelo próprio grupo.
+A coleta de vagas foi realizada por meio da **Adzuna Jobs API**. Entretanto, a API é utilizada somente como fonte de dados. Os algoritmos de busca utilizados no trabalho foram implementados pelo próprio grupo.
 
 Para os experimentos de desempenho também são utilizadas massas de dados sintéticas, permitindo testar o comportamento dos algoritmos com uma quantidade maior de registros.
 
@@ -60,7 +51,7 @@ Cada vaga é representada por um registro contendo informações como:
 
 A principal chave utilizada nas buscas é o **título da vaga**.
 
-Por exemplo, ao pesquisar: "Desenvolvedor" ou "Python" é apresentado na tela quantos itens foram pesquisados e quantos resultados encontrados, acompanhados do tempo de execução de cada uma das buscas, além de ter a comparação das buscas. 
+**Por exemplo, ao pesquisar**: "Desenvolvedor" ou "Python" é apresentado na tela quantos itens foram pesquisados e quantos resultados encontrados, acompanhados do tempo de execução de cada uma das buscas, além de ter a comparação das buscas. 
 
 ```text
 Desenvolvedor Python
@@ -210,6 +201,19 @@ Sua principal limitação é a necessidade de trabalhar com os dados previamente
 Os experimentos desenvolvidos no projeto permitem visualizar essa diferença de comportamento na prática, comparando o número de elementos analisados e o tempo de execução dos algoritmos em diferentes tamanhos de entrada.
 
 Assim, a escolha entre Busca Sequencial e Busca Binária depende das características do problema. A Busca Sequencial pode ser adequada para bases menores ou dados que sofrem alterações frequentes, enquanto a Busca Binária tendea ser mais eficiente em bases maiores e relativamente estáveis, nas quais são realizadas várias consultas.
+
+Os experimentos realizados confirmam, na prática, o comportamento
+teórico esperado dos dois algoritmos:
+
+| n (vagas) | Sequencial · comparações | Binária · comparações |
+|---:|---:|---:|
+| 100 | 51 | 7 |
+| 1.000 | 501 | 9 |
+| 10.000 | 5.001 | 12 |
+| 100.000 | 50.001 | 15 |
+
+
+
 
 ---
 
