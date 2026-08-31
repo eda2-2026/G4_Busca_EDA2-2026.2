@@ -55,6 +55,7 @@ A principal chave utilizada nas buscas é o **título da vaga**.
 
 ```text
 Desenvolvedor Python
+```
 
 ## Guia de instalação
 
