@@ -19,8 +19,9 @@ A proposta consiste em um **Sistema de Busca de Vagas de Emprego**, no qual o us
 
 Foram implementados manualmente dois algoritmos:
 
-- **Busca Sequencial**
-- **Busca Binária**
+- **Busca Sequencial**: complexidade O(n)
+
+- **Busca Binária**: complexidade O(log n), exigindo que a base esteja previamente ordenada.
 
 O sistema permite observar não apenas as vagas encontradas, mas também a quantidade de comparações realizadas e o tempo de execução de cada algoritmo.
 
@@ -59,7 +60,7 @@ Cada vaga é representada por um registro contendo informações como:
 
 A principal chave utilizada nas buscas é o **título da vaga**.
 
-Por exemplo, ao pesquisar:
+Por exemplo, ao pesquisar: "Desenvolvedor" ou "Python" é apresentado na tela quantos itens foram pesquisados e quantos resultados encontrados, acompanhados do tempo de execução de cada uma das buscas, além de ter a comparação das buscas. 
 
 ```text
 Desenvolvedor Python
