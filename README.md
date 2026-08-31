@@ -1,8 +1,8 @@
-# G4_Busca_EDA2-2026.2
+## Informações da Disciplina
 
-Disciplina: Estruturas de Dados 2 - 2026.2
-Professor: Maurício Serrano
-Trabalho: T1 - Algoritmos de Busca
+**Disciplina:** Estruturas de Dados 2 - 2026.2  
+**Professor:** Maurício Serrano  
+**Trabalho:** T1 - Algoritmos de Busca
 
 ## Alunos
 
