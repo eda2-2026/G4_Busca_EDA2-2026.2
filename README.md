@@ -9,7 +9,7 @@
 | Matrícula | Nome |
 |-----------------------|---------------------|
 | 23/1026699 | Eduarda Domingos Rodrigues |
-| 23/1012316 | Yasmin Moreira Do Nascimento |
+| 23/1012316 | Yasmin Moreira do Nascimento |
 
 ---
 
