@@ -215,8 +215,11 @@ teórico esperado dos dois algoritmos:
 | 10.000 | 5.001 | 12 |
 | 100.000 | 50.001 | 15 |
 
+## Apresentação
 
+Vídeo de apresentação do trabalho **T1 - Algoritmos de Busca**, da disciplina Estruturas de Dados 2:
 
+🔗 [Vídeo EDA2 - Busca de Vagas](https://youtu.be/ivrMqV-JgQU)
 
 ---
 
