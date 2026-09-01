@@ -167,7 +167,7 @@ Exemplo de execução utilizando a Busca Binária sobre a base previamente orden
 
 A aplicação apresenta as vagas encontradas, a quantidade de comparações realizadas e o tempo de execução.
 
-<img src="imgs/busca_binaria.png" width="500">
+<img src="imgs/busca_binaria.png" width="800">
 
 <br>
 
